@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {EmailGroupService} from '../services/email-group-service';
-import {EmailGroup} from '../models/email-group';
+import {EmailGroup} from './models/email-group';
+import {EmailGroupService} from './services/email-group.service';
+
+
 
 @Component({
   selector: 'app-table-list',
@@ -10,26 +12,22 @@ import {EmailGroup} from '../models/email-group';
 export class TableListComponent implements OnInit {
 
 
-    public emailGroup: EmailGroup = {
-        id: 0,
-        name: ''
-    };
+  public emailGroup: EmailGroup = {
+    id: 0,
+    name: ''
+  };
 
-    emailGroups: EmailGroup[] = [];
-
+  public emailGroups: EmailGroup[] = [];
   constructor(private emailGroupService: EmailGroupService) { }
 
-  ngOnInit() {
-
-  }
-
-  public getAllGroups() {
+  public getAllBooks() {
     this.emailGroupService.getAllEmailGroups().subscribe(res => {
               this.emailGroups = res
             },
             error => {
-              alert('Error while getting all books')
+              alert('Error while getting all books');
             });
   }
 
+  ngOnInit() {}
 }
