@@ -3,5 +3,5 @@ import {Observable} from 'rxjs';
 export interface Message {
     subject: string;
     content: string;
-    emailGroups: number[];
+    groups: number[];
 }

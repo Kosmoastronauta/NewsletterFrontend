@@ -44,7 +44,7 @@ export class TableListComponent implements OnInit    {
   }
 
   public sendEmail(): void {
-
+      this.emailGroupService.sendEmailToGroups(this.subject, this.content, this.emailGroups);
   }
 
 }
