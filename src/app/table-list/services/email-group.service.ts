@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {EmailGroup} from '../models/email-group';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {HttpModule} from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class EmailGroupService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllEmailGroups(): Observable<EmailGroup[]>
+  getAllEmailGroups(): Observable<EmailGroup[]>
   {
     return this.http.get<EmailGroup[]>(this.ALL_EMAIL_GROUPS_URL);
   }

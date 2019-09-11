@@ -9,25 +9,26 @@ import {EmailGroupService} from './services/email-group.service';
   templateUrl: './table-list.component.html',
   styleUrls: ['./table-list.component.css']
 })
-export class TableListComponent implements OnInit {
+export class TableListComponent implements OnInit    {
 
 
-  public emailGroup: EmailGroup = {
+   emailGroup: EmailGroup = {
     id: 0,
     name: ''
   };
 
   public emailGroups: EmailGroup[] = [];
+
+
+  ngOnInit() {
+    this.getAllEmailGroups()
+  }
   constructor(private emailGroupService: EmailGroupService) { }
 
-  public getAllBooks() {
-    this.emailGroupService.getAllEmailGroups().subscribe(res => {
-              this.emailGroups = res
-            },
-            error => {
-              alert('Error while getting all books');
-            });
+   getAllEmailGroups() {
+     console.log('Elo w komponencie');
+     this.emailGroupService.getAllEmailGroups().subscribe(res => {this.emailGroups = res},
+             error => {alert('Nie ma')})
   }
 
-  ngOnInit() {}
 }

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app.routing';
@@ -26,6 +27,7 @@ import {AutosizeModule} from 'ngx-autosize';
 
 @NgModule({
   imports: [
+          HttpClientModule,
           AutosizeModule,
     BrowserAnimationsModule,
     FormsModule,
