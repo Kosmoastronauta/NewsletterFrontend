@@ -9,8 +9,8 @@ import {HttpModule} from '@angular/http';
 })
 export class EmailGroupService {
 
-  private BASE_URL = 'http://localhost:8080';
-  private ALL_EMAIL_GROUPS_URL = `${this.BASE_URL}\\emailGroups\\`;
+  private BASE_URL = 'http://localhost:8181';
+  private ALL_EMAIL_GROUPS_URL = `${this.BASE_URL}\\groups\\`;
 
   constructor(private http: HttpClient) { }
 
