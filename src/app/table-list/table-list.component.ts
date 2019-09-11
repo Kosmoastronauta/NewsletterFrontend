@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {AutosizeModule} from 'ngx-autosize';
-import {MatTextareaAutosize} from '@angular/material/input';
+import {EmailGroupService} from '../services/email-group-service';
+import {EmailGroup} from '../models/email-group';
+
 @Component({
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
@@ -8,18 +9,26 @@ import {MatTextareaAutosize} from '@angular/material/input';
 })
 export class TableListComponent implements OnInit {
 
-  constructor() { }
+
+    public emailGroup: EmailGroup = {
+        id: 0,
+        name: ''
+    };
+
+    emailGroups: EmailGroup[] = [];
+
+  constructor(private emailGroupService: EmailGroupService) { }
 
   ngOnInit() {
 
   }
 
   public getAllGroups() {
-    this.apiService.getAllBooks().subscribe(res => {
-              this.books = res
+    this.emailGroupService.getAllEmailGroups().subscribe(res => {
+              this.emailGroups = res
             },
             error => {
-              alert("Error while getting all books")
+              alert('Error while getting all books')
             });
   }
 
