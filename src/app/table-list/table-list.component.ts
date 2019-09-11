@@ -11,13 +11,25 @@ import {EmailGroupService} from './services/email-group.service';
 })
 export class TableListComponent implements OnInit    {
 
-
    emailGroup: EmailGroup = {
     id: 0,
-    name: ''
+    name: '',
+     checkedToSend: false
   };
+  marked = false;
+
+
+  public checkedEmailGroups: EmailGroup[] = [];
 
   public emailGroups: EmailGroup[] = [];
+
+   public checked(emailGroup: EmailGroup): void {
+     this.checkedEmailGroups.push(emailGroup);
+   }
+  toggleVisibility(e, emailGroup: EmailGroup) {
+    emailGroup.checkedToSend = e.target.checked;
+
+  }
 
 
   ngOnInit() {
