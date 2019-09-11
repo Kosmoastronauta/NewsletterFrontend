@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EmailGroup} from './models/email-group';
 import {EmailGroupService} from './services/email-group.service';
+import {forEachComment} from 'tslint';
 
 
 
@@ -16,9 +17,9 @@ export class TableListComponent implements OnInit    {
     name: '',
      checkedToSend: false
   };
-  marked = false;
 
-
+  public subject: string;
+  public content: string;
   public checkedEmailGroups: EmailGroup[] = [];
 
   public emailGroups: EmailGroup[] = [];
@@ -38,9 +39,12 @@ export class TableListComponent implements OnInit    {
   constructor(private emailGroupService: EmailGroupService) { }
 
    getAllEmailGroups() {
-     console.log('Elo w komponencie');
      this.emailGroupService.getAllEmailGroups().subscribe(res => {this.emailGroups = res},
              error => {alert('Nie ma')})
+  }
+
+  public sendEmail(): void {
+
   }
 
 }
