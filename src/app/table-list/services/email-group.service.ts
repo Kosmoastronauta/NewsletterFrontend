@@ -5,17 +5,24 @@ import {HttpClient} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {Message} from '../models/message';
 import {log} from 'util';
+import {content} from 'googleapis/build/src/apis/content';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmailGroupService {
+export class EmailGroupService
+{
 
   private BASE_URL = 'http://localhost:8181';
   private ALL_EMAIL_GROUPS_URL = `${this.BASE_URL}\\groups\\`;
-  private SEND_EMAIL_TO_SPECYFIED_GROUPS=`${this.BASE_URL}\\send\\groups\\`;
+  private SEND_EMAIL_TO_GROUPS = `${this.BASE_URL}\\send\\groups\\`;
 
-  message: Message;
+  message: Message =
+          {
+            subject: '',
+            content: '',
+            groups: []
+          };
 
   constructor(private http: HttpClient) { }
 
@@ -23,8 +30,8 @@ export class EmailGroupService {
     return this.http.get<EmailGroup[]>(this.ALL_EMAIL_GROUPS_URL);
   }
 
-  sendEmailToGroups(subject: string, content: string, emailGroups: EmailGroup[]): void {
-    console.log('Elo melo');
+  sendEmailToGroups(subject: string, content: string, emailGroups: EmailGroup[]): Observable<any> {
+
     this.message.subject = subject;
     this.message.content = content;
 
@@ -32,12 +39,7 @@ export class EmailGroupService {
       if (g.checkedToSend) { this.message.groups.push(g.id); }
     });
 
-    this.message.groups.forEach(function (value) {
-      console.log(value.toString())
-    })
-
-
-    this.http.post<Message>(this.SEND_EMAIL_TO_SPECYFIED_GROUPS, this.message);
+    return this.http.post<Message>(this.SEND_EMAIL_TO_GROUPS, this.message);
 
   }
 }

@@ -52,7 +52,7 @@
                       <h4 class="card-title ">Email</h4>
                       <p class="card-category"> Select Groups to send email</p>
                   </div>
-                  <form (submit)="sendEmail()">
+                  <form name="form" method="get" (submit)="sendEmail()">
                           <div class="col-md-8">
                               <mat-form-field class="example-full-width">
                                   <input type="text" name="subject" [(ngModel)]="subject" matInput placeholder="Subject">

@@ -43,8 +43,9 @@ export class TableListComponent implements OnInit    {
              error => {alert('Nie ma')})
   }
 
-  public sendEmail(): void {
-      this.emailGroupService.sendEmailToGroups(this.subject, this.content, this.emailGroups);
+  public sendEmail(){
+      this.emailGroupService.sendEmailToGroups(this.subject, this.content, this.emailGroups)
+              .subscribe(res => {}, error => {alert('Nie MOZNA'); });
   }
 
 }
