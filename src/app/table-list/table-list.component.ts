@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EmailGroup} from './models/email-group';
 import {EmailGroupService} from './services/email-group.service';
-import {forEachComment} from 'tslint';
-
 
 
 @Component({
@@ -12,24 +10,16 @@ import {forEachComment} from 'tslint';
 })
 export class TableListComponent implements OnInit    {
 
-   emailGroup: EmailGroup = {
-    id: 0,
-    name: '',
-     checkedToSend: false
-  };
-
   public subject: string;
   public content: string;
-  public checkedEmailGroups: EmailGroup[] = [];
-
   public emailGroups: EmailGroup[] = [];
 
    public checked(emailGroup: EmailGroup): void {
-     this.checkedEmailGroups.push(emailGroup);
-   }
-  toggleVisibility(e, emailGroup: EmailGroup) {
-    emailGroup.checkedToSend = e.target.checked;
 
+   }
+  toggleVisibility(e, emailGroup: EmailGroup)
+  {
+    emailGroup.checkedToSend = e.target.checked;
   }
 
 
@@ -44,6 +34,8 @@ export class TableListComponent implements OnInit    {
   }
 
   public sendEmail(){
+
+      this.emailGroups.forEach(e => console.log(e.name, e.checkedToSend));
       this.emailGroupService.sendEmailToGroups(this.subject, this.content, this.emailGroups)
               .subscribe(res => {}, error => {alert('Nie MOZNA'); });
   }
