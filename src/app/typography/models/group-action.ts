@@ -1,4 +1,4 @@
-export class GroupAction {
+export interface GroupAction {
     id: number;
     groupId: number;
     name: string;

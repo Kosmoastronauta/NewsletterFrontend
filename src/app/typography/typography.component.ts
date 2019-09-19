@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EmailGroupService} from '../table-list/services/email-group.service';
+import {GroupAction} from './models/group-action';
 
 @Component({
   selector: 'app-typography',
@@ -10,6 +11,9 @@ export class TypographyComponent implements OnInit {
 
   constructor(private emailGroupService: EmailGroupService) { }
 
+  groupAction: GroupAction = {
+    id: 0, groupId: 0, name: '', content: '', subject: '',
+  };
   ngOnInit() {
   }
 
