@@ -9,7 +9,7 @@ import {GroupAction} from '../../typography/models/group-action';
   providedIn: 'root'
 })
 export class EmailGroupService {
-  private BASE_URL = 'http://localhost:8282/newsletterBackend';
+  private BASE_URL = 'http://localhost:8181';
   private ALL_EMAIL_GROUPS_URL = `${this.BASE_URL}\\allGroups\\`;
   private SEND_EMAIL_TO_GROUPS = `${this.BASE_URL}\\send\\groups\\`;
   private ADD_ACTION_TO_GROUP = `${this.BASE_URL}\\addActionToGroup\\`;
@@ -43,5 +43,9 @@ export class EmailGroupService {
 
   addActionToGroup(groupAction: GroupAction): Observable<any> {
     return this.http.post<GroupAction>(this.ADD_ACTION_TO_GROUP, groupAction);
+  }
+
+  getActionsBGroupId(groupId: number): Observable<any> {
+    return this.http.get(this.BASE_URL + '/groupId/' + groupId + '/actions/');
   }
 }

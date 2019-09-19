@@ -18,12 +18,12 @@ export class TypographyComponent implements OnInit {
   subject: string;
   content: string;
   groupAction: GroupAction = {
-    id: 0, groupId: 0, name: '', content: '', subject: '',
+    groupId: 0, name: '', content: '', subject: '',
   };
 
-  toggleVisibility(e, emailGroup: EmailGroup)
-  {
+  toggleVisibility(e, emailGroup: EmailGroup) {
     this.checkedGroup = emailGroup;
+    this.groupAction.groupId = emailGroup.id;
   }
 
   constructor(private emailGroupService: EmailGroupService) { }
@@ -38,12 +38,16 @@ export class TypographyComponent implements OnInit {
 
   public addActionToGroup() {
 
-    this.emailGroups.forEach(e => console.log(e.name, e.checkedToSend));
-    this.emailGroupService.addActionToGroup(this.groupAction)
-            .subscribe(res => {alert('Successfully added action to group')}, error => {alert('Something went wrong' +
-                    ' while' +
-                    ' adding action to group'); });
-  }
+    if (this.checkedGroup == null) { alert('You must check group first'); } else {
+      this.groupAction.name = this.actionName;
+      this.groupAction.subject = this.subject;
+      this.groupAction.content = this.content;
+      this.emailGroupService.addActionToGroup(this.groupAction)
+              .subscribe(res => {alert('Successfully added action to group')}, error => {
+                alert('Something went wrong' + ' while' + ' adding action to group');
+              });
+    }
+    }
 
 
 }

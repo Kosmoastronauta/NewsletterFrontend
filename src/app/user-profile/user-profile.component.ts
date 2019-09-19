@@ -14,7 +14,7 @@ export class UserProfileComponent implements OnInit {
   emailGroups: EmailGroup[];
   checkedGroup: EmailGroup;
   groupAction: GroupAction = {
-    id: 0, groupId: 0, name: '', content: '', subject: '',
+    groupId: 0, name: '', content: '', subject: '',
   };
   groupActions: GroupAction[];
   constructor(private emailGroupService: EmailGroupService) { }
@@ -23,9 +23,20 @@ export class UserProfileComponent implements OnInit {
     this.getAllEmailGroups();
   }
 
+  toggleVisibility(e, emailGroup: EmailGroup) {
+    this.checkedGroup = emailGroup;
+    this.loadActionsOfGroup(this.checkedGroup.id);
+  }
+
+
   getAllEmailGroups() {
     this.emailGroupService.getAllEmailGroups().subscribe(res => {this.emailGroups = res},
             error => {alert('Something went wrong')})
+  }
+
+  loadActionsOfGroup(groupId: number) {
+    this.emailGroupService.getActionsBGroupId(groupId).subscribe(res => {this.groupActions = res},
+            error => {alert('Can not load actions for this group') })
   }
 
 }
