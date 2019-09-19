@@ -24,9 +24,13 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import {AutosizeModule} from 'ngx-autosize';
+import {MatButtonToggle} from '@angular/material/button-toggle';
+import {MatButtonToggleGroup} from '@angular/material/button-toggle';
+import {MatRadioGroup, MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   imports: [
+          MatRadioModule,
           HttpClientModule,
           AutosizeModule,
     BrowserAnimationsModule,

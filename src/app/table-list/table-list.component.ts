@@ -17,8 +17,7 @@ export class TableListComponent implements OnInit    {
    public checked(emailGroup: EmailGroup): void {
 
    }
-  toggleVisibility(e, emailGroup: EmailGroup)
-  {
+  toggleVisibility(e, emailGroup: EmailGroup) {
     emailGroup.checkedToSend = e.target.checked;
   }
 
@@ -33,7 +32,7 @@ export class TableListComponent implements OnInit    {
              error => {alert('Something went wrong')})
   }
 
-  public sendEmail(){
+  public sendEmail() {
 
       this.emailGroups.forEach(e => console.log(e.name, e.checkedToSend));
       this.emailGroupService.sendEmailToGroups(this.subject, this.content, this.emailGroups)

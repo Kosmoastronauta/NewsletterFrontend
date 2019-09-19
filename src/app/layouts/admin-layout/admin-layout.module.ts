@@ -21,8 +21,9 @@ import {
   MatSelectModule
 } from '@angular/material';
 import {AutosizeModule} from 'ngx-autosize';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(AdminLayoutRoutes), FormsModule, ReactiveFormsModule, MatButtonModule, MatRippleModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatTooltipModule, AutosizeModule,],
+  imports: [CommonModule, RouterModule.forChild(AdminLayoutRoutes), FormsModule, ReactiveFormsModule, MatButtonModule, MatRippleModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatTooltipModule, AutosizeModule, MatRadioModule,],
   declarations: [
     DashboardComponent,
     UserProfileComponent,
