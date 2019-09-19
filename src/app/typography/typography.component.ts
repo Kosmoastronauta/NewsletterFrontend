@@ -14,6 +14,9 @@ export class TypographyComponent implements OnInit {
 
   emailGroups: EmailGroup[];
   checkedGroup: EmailGroup;
+  actionName: string;
+  subject: string;
+  content: string;
   groupAction: GroupAction = {
     id: 0, groupId: 0, name: '', content: '', subject: '',
   };
@@ -32,5 +35,14 @@ export class TypographyComponent implements OnInit {
     this.emailGroupService.getAllEmailGroups().subscribe(res => {this.emailGroups = res},
             error => {alert('Something went wrong')})
   }
+
+  public addActionToGroup() {
+
+    this.emailGroups.forEach(e => console.log(e.name, e.checkedToSend));
+    this.emailGroupService.sendEmailToGroups(this.subject, this.content, this.emailGroups)
+            .subscribe(res => {alert('Messages have been sent')}, error => {alert('Something went wrong while' +
+                    ' sending'); });
+  }
+
 
 }

@@ -55,6 +55,12 @@
                     <form name="form" method="get" (submit)="sendEmail()">
                         <div class="col-md-8">
                             <mat-form-field class="example-full-width">
+                                <input type="text" name="subject" [(ngModel)]="actionName" matInput placeholder="Action Name">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-8">
+                            <mat-form-field class="example-full-width">
                                 <input type="text" name="subject" [(ngModel)]="subject" matInput placeholder="Subject">
                             </mat-form-field>
                         </div>

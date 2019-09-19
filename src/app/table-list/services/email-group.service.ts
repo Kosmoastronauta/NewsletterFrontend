@@ -3,15 +3,16 @@ import {EmailGroup} from '../models/email-group';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {Message} from '../models/message';
+import {GroupAction} from '../../typography/models/group-action';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmailGroupService
-{
+export class EmailGroupService {
   private BASE_URL = 'http://localhost:8282/newsletterBackend';
   private ALL_EMAIL_GROUPS_URL = `${this.BASE_URL}\\allGroups\\`;
   private SEND_EMAIL_TO_GROUPS = `${this.BASE_URL}\\send\\groups\\`;
+  private ADD_ACTION_TO_GROUP = `${this.BASE_URL}\\addActionToGroup\\`;
 
   message: Message =
           {
@@ -38,6 +39,9 @@ export class EmailGroupService
     });
 
     return this.http.post<Message>(this.SEND_EMAIL_TO_GROUPS, this.message);
+  }
 
+  addActionToGroup(groupAction: GroupAction): Observable<any> {
+    return this.http.post<GroupAction>(this.ADD_ACTION_TO_GROUP, groupAction);
   }
 }
