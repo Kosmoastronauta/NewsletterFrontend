@@ -39,9 +39,10 @@ export class TypographyComponent implements OnInit {
   public addActionToGroup() {
 
     this.emailGroups.forEach(e => console.log(e.name, e.checkedToSend));
-    this.emailGroupService.sendEmailToGroups(this.subject, this.content, this.emailGroups)
-            .subscribe(res => {alert('Messages have been sent')}, error => {alert('Something went wrong while' +
-                    ' sending'); });
+    this.emailGroupService.addActionToGroup(this.groupAction)
+            .subscribe(res => {alert('Successfully added action to group')}, error => {alert('Something went wrong' +
+                    ' while' +
+                    ' adding action to group'); });
   }
 
 
