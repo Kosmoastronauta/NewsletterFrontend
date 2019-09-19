@@ -30,14 +30,15 @@ export class TableListComponent implements OnInit    {
 
    getAllEmailGroups() {
      this.emailGroupService.getAllEmailGroups().subscribe(res => {this.emailGroups = res},
-             error => {alert('Nie ma')})
+             error => {alert('Something went wrong')})
   }
 
   public sendEmail(){
 
       this.emailGroups.forEach(e => console.log(e.name, e.checkedToSend));
       this.emailGroupService.sendEmailToGroups(this.subject, this.content, this.emailGroups)
-              .subscribe(res => {}, error => {alert('Nie MOZNA'); });
+              .subscribe(res => {alert('Messages have been sent')}, error => {alert('Something went wrong while' +
+                      ' sending'); });
   }
 
 }

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {EmailGroup} from '../models/email-group';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-
 import {Message} from '../models/message';
 
 @Injectable({
@@ -10,8 +9,8 @@ import {Message} from '../models/message';
 })
 export class EmailGroupService
 {
-  private BASE_URL = 'http://localhost:8181';
-  private ALL_EMAIL_GROUPS_URL = `${this.BASE_URL}\\groups\\`;
+  private BASE_URL = 'http://localhost:8282/newsletterBackend';
+  private ALL_EMAIL_GROUPS_URL = `${this.BASE_URL}\\allGroups\\`;
   private SEND_EMAIL_TO_GROUPS = `${this.BASE_URL}\\send\\groups\\`;
 
   message: Message =

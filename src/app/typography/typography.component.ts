@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {EmailGroupService} from '../table-list/services/email-group.service';
 
 @Component({
   selector: 'app-typography',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypographyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private emailGroupService: EmailGroupService) { }
 
   ngOnInit() {
   }
