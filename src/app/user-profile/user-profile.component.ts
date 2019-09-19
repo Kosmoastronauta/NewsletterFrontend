@@ -13,6 +13,8 @@ export class UserProfileComponent implements OnInit {
 
   emailGroups: EmailGroup[];
   checkedGroup: EmailGroup;
+  currentAction: GroupAction;
+
   groupAction: GroupAction = {
     groupId: 0, name: '', content: '', subject: '',
   };
