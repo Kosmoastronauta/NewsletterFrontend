@@ -4,11 +4,11 @@ import {EmailGroupService} from './services/email-group.service';
 
 
 @Component({
-  selector: 'app-table-list',
-  templateUrl: './table-list.component.html',
-  styleUrls: ['./table-list.component.css']
+  selector: 'send-email',
+  templateUrl: './send-email.component.html',
+  styleUrls: ['./send-email.component.css']
 })
-export class TableListComponent implements OnInit    {
+export class SendEmailComponent implements OnInit    {
 
   public subject: string;
   public content: string;
