@@ -6,11 +6,12 @@ import {MatButtonToggle} from '@angular/material/button-toggle';
 import {MatButtonToggleGroup} from '@angular/material/button-toggle';
 
 @Component({
-  selector: 'app-typography',
-  templateUrl: './typography.component.html',
-  styleUrls: ['./typography.component.css']
+  // tslint:disable-next-line:component-selector
+  selector: 'add-action',
+  templateUrl: './add-action.component.html',
+  styleUrls: ['./add-action.component.css']
 })
-export class TypographyComponent implements OnInit {
+export class AddActionComponent implements OnInit {
 
   emailGroups: EmailGroup[];
   checkedGroup: EmailGroup;
