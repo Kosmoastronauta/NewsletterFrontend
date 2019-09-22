@@ -30,6 +30,10 @@ export class UserProfileComponent implements OnInit {
     this.loadActionsOfGroup(this.checkedGroup.id);
   }
 
+  loadAction(groupAction: GroupAction) {
+    this.currentAction = groupAction;
+  }
+
 
   getAllEmailGroups() {
     this.emailGroupService.getAllEmailGroups().subscribe(res => {this.emailGroups = res},
