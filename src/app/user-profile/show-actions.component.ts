@@ -5,11 +5,12 @@ import {EmailGroupService} from '../table-list/services/email-group.service';
 import {GroupAction} from '../typography/models/group-action';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  // tslint:disable-next-line:component-selector
+  selector: 'show-actions',
+  templateUrl: './show-actions.component.html',
+  styleUrls: ['./show-actions.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class ShowActionsComponent implements OnInit {
 
   emailGroups: EmailGroup[];
   checkedGroup: EmailGroup;
@@ -33,7 +34,6 @@ export class UserProfileComponent implements OnInit {
   loadAction(groupAction: GroupAction) {
     this.currentAction = groupAction;
   }
-
 
   getAllEmailGroups() {
     this.emailGroupService.getAllEmailGroups().subscribe(res => {this.emailGroups = res},

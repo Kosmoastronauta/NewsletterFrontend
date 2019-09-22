@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
+import {ShowActionsComponent} from '../../user-profile/show-actions.component';
 import {SendEmailComponent} from '../../table-list/send-email.component';
 import { AddActionComponent } from '../../typography/add-action.component';
 import { IconsComponent } from '../../icons/icons.component';
@@ -53,7 +53,7 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'show-actions',   component: ShowActionsComponent },
     { path: 'send-email',     component: SendEmailComponent },
     { path: 'add-action',     component: AddActionComponent },
     { path: 'icons',          component: IconsComponent },

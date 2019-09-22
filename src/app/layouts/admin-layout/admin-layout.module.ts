@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
+import { ShowActionsComponent} from '../../user-profile/show-actions.component';
 import {SendEmailComponent} from '../../table-list/send-email.component';
 import { AddActionComponent } from '../../typography/add-action.component';
 import { IconsComponent } from '../../icons/icons.component';
@@ -26,7 +26,7 @@ import {MatRadioModule} from '@angular/material/radio';
   imports: [CommonModule, RouterModule.forChild(AdminLayoutRoutes), FormsModule, ReactiveFormsModule, MatButtonModule, MatRippleModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatTooltipModule, AutosizeModule, MatRadioModule,],
   declarations: [
     DashboardComponent,
-    UserProfileComponent,
+    ShowActionsComponent,
     SendEmailComponent,
     AddActionComponent,
     IconsComponent,
