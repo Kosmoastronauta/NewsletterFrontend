@@ -1,0 +1,77 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-3">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Groups</h4>
+                      <p class="card-category"> Select Groups to send email</p>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      #
+                                  </th>
+                                  <th>
+                                      Name of Group
+                                  </th>
+                                  <th>
+                                      Send to
+                                  </th>
+
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let group of emailGroups; let i=index" >
+                                      <th scope="row" >{{i+1}}</th>
+                                      <td>{{group.name}}</td>
+                                     <td> <div class="form-check">
+                                          <label class="form-check-label">
+                                              <input (change)="toggleVisibility($event, group)" class="form-check-input" type="checkbox" value="" >
+                                              <span class="form-check-sign">
+                                                          <span class="check"></span>
+                                                      </span>
+                                          </label>
+                                      </div>
+                                     </td>
+
+                                  </tr>
+
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Email</h4>
+                      <p class="card-category"> Select Groups to send email</p>
+                  </div>
+                  <form name="form" method="get" (submit)="sendEmail()">
+                          <div class="col-md-8">
+                              <mat-form-field class="example-full-width">
+                                  <input type="text" name="subject" [(ngModel)]="subject" matInput placeholder="Subject">
+                              </mat-form-field>
+                          </div>
+
+
+                          <div class="col-md-12">
+
+                              <mat-form-field class="example-full-width">
+                                  <textarea type="text" name="content" [(ngModel)]="content" matAutosizeMinRows="20"  matTextareaAutosize matInput placeholder="Content"></textarea>
+
+                              </mat-form-field>
+
+                          </div>
+                      <button mat-raised-button type="submit" class="btn btn-danger pull-right">Send Email</button>
+                      <div class="clearfix"></div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

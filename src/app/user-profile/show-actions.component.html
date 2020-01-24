@@ -1,0 +1,130 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Groups</h4>
+                        <p class="card-category"> Select Groups to which You want add new action</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Name of Group
+                                </th>
+                                <th>
+                                    Add to
+                                </th>
+
+                                </thead>
+
+                                <tbody>
+
+                                <tr *ngFor="let group of emailGroups; let i=index" >
+                                    <th scope="row" >{{i+1}}</th>
+                                    <td>{{group.name}}</td>
+                                    <td> <div class="form-check">
+                                        <label class="form-check-label">
+                                            <mat-radio-button (change)="toggleVisibility($event,group)"></mat-radio-button>
+
+                                        </label>
+                                    </div>
+                                    </td>
+
+                                </tr>
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Actions of: <b>{{checkedGroup.name}}</b></h4>
+                        <p class="card-category"> Select Group to add new action</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    Action Name
+                                </th>
+                                <th>
+                                    Details
+                                </th>
+
+
+                                </thead>
+
+                                <tbody>
+
+                                <tr *ngFor="let action of groupActions; let i=index" >
+                                    <th scope="row" >{{i+1}}</th>
+                                    <td>{{action.name}}</td>
+                                    <td> <div class="form-check">
+                                        <label class="form-check-label"></label>
+                                        <button class="btn btn-primary" (click)="loadAction(action)" >More</button>
+                                    </div>
+
+                                    </td>
+
+                                </tr>
+
+
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Action Name: <b>{{currentAction.name}}</b></h4>
+                        <p class="card-category"> </p>
+                    </div>
+                    <form name="form" method="get" >
+                        <div class="col-md-8">
+                            <mat-form-field class="example-full-width">
+                                <textarea type="text" name="subject" matInput placeholder="Subject">{{currentAction.subject}}</textarea>
+                            </mat-form-field>
+                        </div>
+
+
+                        <div class="col-md-12">
+
+                            <mat-form-field class="example-full-width">
+                                <textarea type="text" name="content"  matAutosizeMinRows="20"  matTextareaAutosize matInput placeholder="Content">{{currentAction.content}}</textarea>
+
+                            </mat-form-field>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
